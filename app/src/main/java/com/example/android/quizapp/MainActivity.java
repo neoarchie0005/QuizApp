@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ExpandableListView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -37,19 +38,23 @@ public class MainActivity extends AppCompatActivity {
     CheckBox cb3;
     CheckBox cb4;
 
-    EditText et1Answer;
-
     LinearLayout ll3;
 
-    Button button;
+    EditText et1Answer;
 
+    ExpandableListView expLV;
+
+    Button submitButton;
+    Button resetButton;
 
     int questionOne;
     int questionTwo;
     int questionThree;
     int questionFour;
     int questionFive;
+    int questionSix;
     int totalMarks;
+    String remark;
 
 
     @Override
@@ -58,7 +63,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //This is a call on the submit button.
-        button = findViewById(R.id.submit_button);
+        submitButton = findViewById(R.id.submit_button);
+
+        //This is called to reset the quiz.
+        resetButton = findViewById(R.id.reset_button);
 
         //This is a call to identify radioGroup rg1.
         rg1 = findViewById(R.id.rg1_radio_group);
@@ -96,28 +104,32 @@ public class MainActivity extends AppCompatActivity {
         //This is a call to identify question_five_edit_text.
         et1Answer = findViewById(R.id.question_five_edit_text);
 
+        // get the listview
+        expLV = findViewById(R.id.exp_list_view_1);
 
-        //Button click method to show the buttons that have been checked or clicked.
-        button.setOnClickListener(new View.OnClickListener() {
+
+
+
+
+        //Button click method to show the buttons that have been checked or clicked and submit.
+        submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //This shows correct answer choice for question one and allocates a mark.
-                questionOne = 4;
+                questionOne = 0;
                 if (rb3.isChecked()) {
                     questionOne = 4;
                 } else {
                     questionOne = 0;
                 }
 
-
                 //This shows correct answer choice for question two and allocates a mark.
-                questionTwo = 4;
+                questionTwo = 0;
                 if (rb8.isChecked()) {
                     questionTwo = 4;
                 } else {
                     questionTwo = 0;
                 }
-
 
                 //This shows correct answer choice for question three and allocates a mark.
                 questionThree = 0;
@@ -127,79 +139,89 @@ public class MainActivity extends AppCompatActivity {
                 if (cb1.isChecked() && cb2.isChecked() && cb3.isChecked() && cb4.isChecked()) {
                     questionThree = 0;
                 }
-                if (cb1.isChecked() && cb2.isChecked() && cb4.isChecked()) {
-                    questionThree = 0;
-                }
-                if (cb2.isChecked() && cb3.isChecked() && cb4.isChecked()) {
-                    questionThree = 0;
-                }
-                if (cb1.isChecked() && cb4.isChecked()) {
-                    questionThree = 0;
-                }
-                if (cb2.isChecked() && cb4.isChecked()) {
-                    questionThree = 0;
-                }
-                if (cb3.isChecked() && cb4.isChecked()) {
-                    questionThree = 0;
-                }
-                if (cb4.isChecked()) {
-                    questionThree = 0;
-                }
-
 
                 //This shows correct answer choice for question four and allocates a mark.
-                questionFour = 4;
+                questionFour = 0;
                 if (rb11.isChecked()) {
                     questionFour = 4;
                 } else {
                     questionFour = 0;
                 }
 
+                questionFive = 0;
+                if (et1Answer.getText().toString().equalsIgnoreCase("Bethlehem")) {
+                    questionFive = 4;
+                } else {
+                    questionFive = 0;
+                }
+
+                questionSix = 0;
+
 
                 //This calculates the total marks scored.
-                questionFive = 4;
-                if (rb3.isChecked() && rb8.isChecked() && cb1.isChecked() && cb2.isChecked() &&
-                        cb3.isChecked() && rb11.isChecked() && et1Answer.equals("Bethlehem")) {
-                    totalMarks = questionOne + questionTwo + questionThree + questionFour +
-                            questionFive;
+                totalMarks = 0;
+                if (rb3.isChecked()) {
+                    totalMarks += 4;
                 }
-                if (rb3.isChecked() == false && rb8.isChecked() && cb1.isChecked() &&
-                        cb2.isChecked() &&
-                        cb3.isChecked() && rb11.isChecked() && et1Answer.equals("Bethlehem")) {
-                    totalMarks = questionTwo + questionThree + questionFour + questionFive;
+                if (rb8.isChecked()) {
+                    totalMarks += 4;
                 }
-                if (rb3.isChecked() && rb8.isChecked() == false && cb1.isChecked() &&
-                        cb2.isChecked() &&
-                        cb3.isChecked() && rb11.isChecked() && et1Answer.equals("Bethlehem")) {
-                    totalMarks = questionOne + questionThree + questionFour + questionFive;
+                if (cb1.isChecked() && cb2.isChecked() && cb3.isChecked() && !cb4.isChecked()) {
+                    totalMarks += 4;
                 }
-                if (rb3.isChecked() && rb8.isChecked() && cb1.isChecked() == false &&
-                        cb2.isChecked() == false &&
-                        cb3.isChecked() == false && rb11.isChecked() && et1Answer.equals("Bethlehem")) {
-                    totalMarks = questionOne + questionTwo + questionFour + questionFive;
+                if (rb11.isChecked()) {
+                    totalMarks += 4;
                 }
-                if (rb3.isChecked() && rb8.isChecked() && cb1.isChecked() && cb2.isChecked() &&
-                        cb3.isChecked() && rb11.isChecked() == false && et1Answer.equals("Bethlehem")) {
-                    totalMarks = questionOne + questionTwo + questionThree + questionFive;
-                }
-                if (rb3.isChecked() && rb8.isChecked() && cb1.isChecked() && cb2.isChecked() &&
-                        cb3.isChecked() && rb11.isChecked() && et1Answer.equals("Bethlehem") == false) {
-                    totalMarks = questionOne + questionTwo + questionThree + questionFour;
-                } else {
-                    totalMarks = 0;
+                if (et1Answer.getText().toString().equalsIgnoreCase("Bethlehem")) {
+                    totalMarks += 4;
                 }
 
+                remark = "";
+                if (rb3.isChecked() && rb8.isChecked() && cb1.isChecked() && cb2.isChecked() &&
+                        cb3.isChecked() && rb11.isChecked() &&
+                        et1Answer.getText().toString().equalsIgnoreCase("Bethlehem")) {
+                    remark = ", Excellently done!";
+                } else {
+                    remark = ", You can do better.";
+                }
+                if (!rb3.isChecked() && !rb8.isChecked() && !cb1.isChecked() && !cb2.isChecked() &&
+                        !cb3.isChecked() && !rb11.isChecked() &&
+                        !et1Answer.getText().toString().equalsIgnoreCase("Bethlehem")) {
+                    remark = "";
+                }
+
+
+                //This call triggers the reset button all the answers.
+                resetButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        rg1.clearCheck();
+                        rg2.clearCheck();
+
+                        cb1.setChecked(false);
+                        cb2.setChecked(false);
+                        cb3.setChecked(false);
+                        cb4.setChecked(false);
+
+                        rg3.clearCheck();
+
+                        et1Answer.setText("");
+                    }
+                });
 
                 //This Toast displays the right answers for the questions and the marks obtained.
-                Toast.makeText(MainActivity.this, "RESULTS" +
+                Toast.makeText(MainActivity.this, "RESULTS: 4 points for each " +
+                        "correct answer." +
                         "\n\n Question1: " + questionOne +
                         "\n\n Question2: " + questionTwo +
                         "\n\n Question3: " + questionThree +
                         "\n\n Question4: " + questionFour +
                         "\n\n Question5: " + questionFive +
-                        "\n\n total: " + totalMarks, Toast.LENGTH_LONG).show();
+                        "\n\n Total Score: " + totalMarks + remark, Toast.LENGTH_LONG).show();
+
             }
         });
+
 
     }
 }

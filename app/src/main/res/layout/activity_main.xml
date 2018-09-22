@@ -6,11 +6,11 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#EEEEEE">
+        android:background="#25225986">
 
         <LinearLayout
             android:id="@+id/parent_Linear_layout"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
@@ -20,13 +20,26 @@
                 android:background="#25225986"
                 android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:text="Question 1: Who taught Practice Set 1 in lesson two of the Udacity Course?"
-                    android:textColor="#000000"
-                    android:textSize="20sp" />
+                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/card_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    card_view:cardBackgroundColor="#63651576"
+                    card_view:cardCornerRadius="8dp"
+                    card_view:cardElevation="4dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:text="Question 1: How much was Judas paid for selling Jesus?"
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
+
+                </android.support.v7.widget.CardView>
 
                 <RadioGroup
                     android:id="@+id/rg1_radio_group"
@@ -40,21 +53,24 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:paddingRight="20dp"
-                        android:text="Kunal" />
+                        android:text="20 pieces of silver"
+                        android:textSize="20sp" />
 
                     <RadioButton
                         android:id="@+id/radio_button_two"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
-                        android:text="Katherine" />
+                        android:text="50 pieces of silver"
+                        android:textSize="20sp" />
 
                     <RadioButton
                         android:id="@+id/radio_button_three"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
-                        android:text="Lyla" />
+                        android:text="30 pieces of silver"
+                        android:textSize="20sp" />
 
                     <RadioButton
                         android:id="@+id/radio_button_four"
@@ -62,24 +78,38 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="16dp"
                         android:layout_marginLeft="16dp"
-                        android:text="All the above" />
+                        android:text="None of the above"
+                        android:textSize="20sp" />
                 </RadioGroup>
 
+
             </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#2196F3"
                 android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:text="Question 2: Google, Udacity and ?"
-                    android:textColor="#000000"
-                    android:textSize="20sp" />
+                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/card_view_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    card_view:cardBackgroundColor="#63651576"
+                    card_view:cardCornerRadius="8dp"
+                    card_view:cardElevation="4dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:text="Question 2: Who wanted to kill baby Jesus?"
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
+                </android.support.v7.widget.CardView>
 
                 <RadioGroup
                     android:id="@+id/rg2_radio_group"
@@ -92,21 +122,24 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
-                        android:text="Microsoft" />
+                        android:text="King David"
+                        android:textSize="20sp" />
 
                     <RadioButton
                         android:id="@+id/radio_button_six"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
-                        android:text="Chrome" />
+                        android:text="King Agrippa"
+                        android:textSize="20sp" />
 
                     <RadioButton
                         android:id="@+id/radio_button_seven"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
-                        android:text="Gmail" />
+                        android:text="Pontius Pilate"
+                        android:textSize="20sp" />
 
                     <RadioButton
                         android:id="@+id/radio_button_eight"
@@ -114,7 +147,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="16dp"
                         android:layout_marginLeft="16dp"
-                        android:text="Andela" />
+                        android:text="King Herod"
+                        android:textSize="20sp" />
                 </RadioGroup>
 
             </LinearLayout>
@@ -123,37 +157,51 @@
                 android:id="@+id/linear_layout_three_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#25225986"
                 android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:text="Question 3: Which of these people are Udacity instructors"
-                    android:textColor="#000000"
-                    android:textSize="20sp" />
+                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/card_view_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    card_view:cardBackgroundColor="#63651576"
+                    card_view:cardCornerRadius="8dp"
+                    card_view:cardElevation="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:text="Question 3: Which of these people were Disciples of Jesus?"
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
+                </android.support.v7.widget.CardView>
 
                 <CheckBox
                     android:id="@+id/checkbox_one"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
-                    android:text="Lyla Fujiwara" />
+                    android:text="Peter"
+                    android:textSize="20sp" />
 
                 <CheckBox
                     android:id="@+id/checkbox_two"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
-                    android:text="Katherine Kuan" />
+                    android:text="James"
+                    android:textSize="20sp" />
 
                 <CheckBox
                     android:id="@+id/checkbox_three"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
-                    android:text="Kunal" />
+                    android:text="John"
+                    android:textSize="20sp" />
 
                 <CheckBox
                     android:id="@+id/checkbox_four"
@@ -161,59 +209,75 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
                     android:layout_marginLeft="16dp"
-                    android:text="Foster Clark and James Spader" />
+                    android:text="John the Baptist"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#2196F3"
                 android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:text="Question 4: Who succeeded the throne after David?"
-                    android:textColor="#000000"
-                    android:textSize="20sp" />
+                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/card_view_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    card_view:cardBackgroundColor="#63651576"
+                    card_view:cardCornerRadius="8dp"
+                    card_view:cardElevation="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:text="Question 4: Who succeeded the throne after David?"
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
+
+                </android.support.v7.widget.CardView>
 
                 <RadioGroup
                     android:id="@+id/rg3_radio_group"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
                     <RadioButton
                         android:id="@+id/radio_button_nine"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
-                        android:paddingRight="4dp"
-                        android:text="Saul" />
+                        android:text="Saul"
+                        android:textSize="20sp" />
 
                     <RadioButton
                         android:id="@+id/radio_button_ten"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingRight="4dp"
-                        android:text="Jonathan" />
+                        android:layout_marginLeft="16dp"
+                        android:text="Jonathan"
+                        android:textSize="20sp" />
 
                     <RadioButton
                         android:id="@+id/radio_button_eleven"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingRight="4dp"
-                        android:text="Solomon" />
+                        android:layout_marginLeft="16dp"
+                        android:text="Solomon"
+                        android:textSize="20sp" />
 
                     <RadioButton
                         android:id="@+id/radio_button_twelve"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="16dp"
-                        android:paddingRight="4dp"
-                        android:text="Jesus" />
+                        android:layout_marginLeft="16dp"
+                        android:text="Jesus"
+                        android:textSize="20sp" />
                 </RadioGroup>
 
             </LinearLayout>
@@ -221,23 +285,68 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#25225986"
                 android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:text="Question 5: In what city was Jesus born?"
-                    android:textColor="#000000"
-                    android:textSize="20sp" />
+                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/card_view_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    card_view:cardBackgroundColor="#63651576"
+                    card_view:cardCornerRadius="8dp"
+                    card_view:cardElevation="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:text="Question 5: In what city was Jesus born?"
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
+                </android.support.v7.widget.CardView>
 
                 <EditText
                     android:id="@+id/question_five_edit_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
-                    android:hint="Write your answer here" />
+                    android:hint="Write your answer here"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/card_view_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    card_view:cardBackgroundColor="#63651576"
+                    card_view:cardCornerRadius="8dp"
+                    card_view:cardElevation="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:text="Question 5: Who gave birth to Jesus?"
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
+                </android.support.v7.widget.CardView>
+
+                <ExpandableListView
+                    android:id="@+id/exp_list_view_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </ExpandableListView>
             </LinearLayout>
 
         </LinearLayout>
@@ -247,12 +356,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
             android:layout_below="@+id/parent_Linear_layout"
-            android:layout_centerHorizontal="true"
             android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
             android:backgroundTint="#2196F3"
             android:onClick="submitButton"
             android:text="Submit"
+            android:textColor="#000000" />
+
+        <Button
+            android:id="@+id/reset_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/parent_Linear_layout"
+            android:layout_marginBottom="16dp"
+            android:layout_marginRight="16dp"
+            android:backgroundTint="#2196F3"
+            android:onClick="resetButton"
+            android:text="Reset"
             android:textColor="#000000" />
 
     </RelativeLayout>
